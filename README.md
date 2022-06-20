@@ -29,6 +29,21 @@ You will also see different colors. The table below explain each color in import
 
 If a black piece move, it will be colored in purple (purple is more important than blue).
 
+## How to use it
+
+After compiling the program, you can execute it with arguments or not.\
+The following table will show you the available arguments.
+
+|argument|signification|
+|--------|-------------|
+|`--vs`|you can play against an another player|
+|`--vsBot`|you can play against the AI|
+|`--bot`|the AI will play against itself|
+|`--withoutEnter`|You don't need to press enter before playing your turn|
+
+The 3 first arguments can't be used simultaneously. If you used 2 arguments, the order isn't important. If you launch it without argument, the program will be launched as you used the first argument.
+
+
 ## Basic modifications
 
 Some basic modifications can upgrade the AI.
