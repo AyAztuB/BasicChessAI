@@ -24,6 +24,11 @@ namespace BasicChessAI.Players
                 Console.Error.WriteLine("ERROR : IMPOSSIBLE TO FOUND A MOVE !!!! " + minimax.Item3);
                 Environment.Exit(44);
             }
+            
+            if (minimax.Item1.Piece.Type == PieceType.King)
+                ((King)minimax.Item1.Piece).hasMoved = true;
+            if (minimax.Item1.Piece.Type == PieceType.Rook)
+                ((Rook) minimax.Item1.Piece).hasMoved = true;
             minimax.Item1.Piece.ApplyMovement(minimax.Item2, true);
             return (minimax.Item1, minimax.Item2);
         }

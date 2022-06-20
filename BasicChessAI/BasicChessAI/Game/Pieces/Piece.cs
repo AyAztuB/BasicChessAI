@@ -98,11 +98,7 @@ namespace BasicChessAI.Game.Pieces
                 prevTile.ChangePiece(this);
                 this.position = prevTile;
                 if (isRook)
-                {
-                    ((King) this).hasMoved = false;
-                    ((Rook) rook).hasMoved = false;
                     rook.ReverseAppliedMove(GetTile(rook.Position.X, rook.Position.Y == 5 ? 7 : 0), prevRookPiece);
-                }
             }
         }
 
@@ -117,9 +113,9 @@ namespace BasicChessAI.Game.Pieces
                     GetTile(this.Position.X, 7).Piece.ApplyMovement(GetTile(this.Position.X, 5), isAI);
             }
 
-            if (this.Type == PieceType.King)
+            if (!isAI && this.Type == PieceType.King)
                 ((King) this).hasMoved = true;
-            if (this.Type == PieceType.Rook)
+            if (!isAI && this.Type == PieceType.Rook)
                 ((Rook) this).hasMoved = true;
             
             this.position.ChangePiece(new Empty(this.position, this.board));
