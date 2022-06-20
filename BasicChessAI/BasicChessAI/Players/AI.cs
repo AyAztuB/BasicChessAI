@@ -45,6 +45,9 @@ namespace BasicChessAI.Players
             Tile prevTile;
             Piece prevPiece;
             Piece prevPawnPiece;
+            bool isRook;
+            Piece rook;
+            Piece prevRookPiece;
             int value;
             List<Piece> iterableList = new List<Piece>();
             foreach (var piece in colorToPlay == Color.Black ? game.BlackPieces : game.WhitePieces)
@@ -58,13 +61,23 @@ namespace BasicChessAI.Players
                     prevTile = piece.Position;
                     foreach (var tile in piece.GetPossibleMoves())
                     {
+                        isRook = false;
+                        rook = null;
+                        prevRookPiece = null;
                         prevPawnPiece = null;
                         prevPiece = tile.Piece;
                         if (piece.Type == PieceType.Pawn && tile.X == 0) 
                             prevPawnPiece = piece;
+                        if (piece.Type == PieceType.King &&
+                            (tile.Y == piece.Position.Y + 2 || tile.Y == piece.Position.Y - 2))
+                        {
+                            isRook = true;
+                            rook = game._Board[piece.Position.X, tile.Y == piece.Position.Y + 2 ? 7 : 0].Piece;
+                            prevRookPiece = game._Board[piece.Position.X, tile.Y == 6 ? 5 : 3].Piece;
+                        }
                         piece.ApplyMovement(tile, true);
                         var recursivus = Minimax(game, depth - 1, alpha, beta, Color.Black);
-                        tile.Piece.ReverseAppliedMove(prevTile, prevPiece, prevPawnPiece);
+                        tile.Piece.ReverseAppliedMove(prevTile, prevPiece, prevPawnPiece, isRook, rook, prevRookPiece);
                         if (recursivus.Item3 > value || (recursivus.Item3 == Int32.MinValue && value == Int32.MinValue))
                         {
                             nextLastMove = piece.Position;
@@ -87,13 +100,23 @@ namespace BasicChessAI.Players
                 prevTile = piece.Position;
                 foreach (var tile in piece.GetPossibleMoves())
                 {
+                    isRook = false;
+                    rook = null;
+                    prevRookPiece = null;
                     prevPawnPiece = null;
                     prevPiece = tile.Piece;
                     if (piece.Type == PieceType.Pawn && tile.X == 7)
                         prevPawnPiece = piece;
+                    if (piece.Type == PieceType.King &&
+                        (tile.Y == piece.Position.Y + 2 || tile.Y == piece.Position.Y - 2))
+                    {
+                        isRook = true;
+                        rook = game._Board[piece.Position.X, tile.Y == piece.Position.Y + 2 ? 7 : 0].Piece;
+                        prevRookPiece = game._Board[piece.Position.X, tile.Y == 6 ? 5 : 3].Piece;
+                    }
                     piece.ApplyMovement(tile, true);
                     var recursivus = Minimax(game, depth - 1, alpha, beta, Color.White);
-                    tile.Piece.ReverseAppliedMove(prevTile, prevPiece, prevPawnPiece);
+                    tile.Piece.ReverseAppliedMove(prevTile, prevPiece, prevPawnPiece, isRook, rook, prevRookPiece);
                     if (recursivus.Item3 < value || (recursivus.Item3 == Int32.MaxValue && value == Int32.MaxValue))
                     {
                         nextLastMove = piece.Position;
