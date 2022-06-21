@@ -251,9 +251,9 @@ namespace BasicChessAI.Players
                 for (int j = 3; j <= 4; j++)
                 {
                     if (board._Board[i, j].Piece.Color == Color.White)
-                        res += 10;
+                        res += 5;
                     else if (board._Board[i, j].Piece.Color == Color.Black)
-                        res -= 10;
+                        res -= 5;
                 }
             }
 
