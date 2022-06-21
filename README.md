@@ -58,7 +58,7 @@ Finally, you can add some options using the difficulty argument in the AI constr
 
 Everyone can contribute to this project. However, I will ask every contributors to use explicit variable and function name, add comment if it's not simple to know what is done, and to precisely explain what modification was done in the commit section (what is added, deleted, changed, where it is, how it's use and how to use it, potentially why).
 
-To become a contributor, please contact me explaining me what you are going to do on the project and giving me your github account name.
+To become a contributor, please contact me explaining me what you are going to do on the project and giving me your github account name or email.
 
 ## License
 
