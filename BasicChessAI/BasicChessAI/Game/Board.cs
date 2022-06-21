@@ -119,12 +119,12 @@ namespace BasicChessAI.Game
                 moves = pieceToMove.GetPossibleMoves();
             Console.Write("   |");
             for (int i = 0; i < 8; i++)
-                Console.Write($" {i+1} |");
+                Console.Write($" {(char)(i+'a')} |");
             Console.WriteLine();
             Console.WriteLine("------------------------------------");
             for (int i = 0; i < 8; i++)
             {
-                Console.Write($"{(char) (i + 'a')} ||");
+                Console.Write($"{8-i} ||");
                 for (int j = 0; j < 8; j++)
                 {
                     if (this._Board[i, j].Piece.Type != PieceType.Empty)

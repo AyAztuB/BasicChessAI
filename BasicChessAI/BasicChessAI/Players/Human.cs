@@ -64,8 +64,8 @@ namespace BasicChessAI.Players
             y = 0;
             if (s.Length != 2 || s[0] is < 'a' or > 'h' || s[1] is < '1' or > '8')
                 return false;
-            x = s[0] - 'a';
-            y = s[1] - '1';
+            y = s[0] - 'a';
+            x = (s[1] - '8') * -1;
             if (MyPiece)
                 return this.Board._Board[x, y].Piece.Color == this.PlayerColor;
             return this.Board._Board[x, y].Piece.Color != this.PlayerColor;

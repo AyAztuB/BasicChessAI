@@ -1,7 +1,5 @@
 # BasicChessAI
 This is a basic AI (in c#) that can play chess in a terminal.\
-The board representation is mine and doesn't respect any convention.\
-You can change it directly in the `Print` function in `Board.cs` and in the `IsValid` function in `Human.cs`.\
 This game doesn't support the _en passant_ capture move.
 ## Display
 The board is displayed really simply. There are no colors for the diagonals.\
