@@ -2,7 +2,7 @@
 This is a basic AI (in c#) that can play chess in a terminal.\
 The board representation is mine and doesn't respect any convention.\
 You can change it directly in the `Print` function in `Board.cs` and in the `IsValid` function in `Human.cs`.\
-This game isn't support the _en passant_ capture move.
+This game doesn't support the _en passant_ capture move.
 ## Display
 The board is displayed really simply. There are no colors for the diagonals.\
 Below is a summary table of the different symbols:
@@ -60,10 +60,12 @@ Finally, you can add some options using the difficulty argument in the AI constr
 
 Everyone can contribute to this project. However, I will ask every contributors to use explicit variable and function name, add comment if it's not simple to know what is done, and to precisely explain what modification was done in the commit section (what is added, deleted, changed, where it is, how it's use and how to use it, potentially why).
 
+To become a contributor, please contact me explaining me what you are going to do on the project and giving me your github account name.
+
 ## License
 
 This project is free to use !
 
 ## Contact me
 
-If you have any problem or if you don't understand any thing (after research obviously), you can contact me at ayaztub@gmail.com or on discord via pm at `AyAztuB#2419`. When you contact me, please use a specific subject (like _basic chess AI_) and precisely explain what your problem with.
+If you have a trouble (after research obviously) or for anything else about this project, you can contact me at ayaztub@gmail.com or on discord via private message at `AyAztuB#2419`. When you contact me, please use a specific subject (like _basic chess AI_) and precisely explain what your problem with.
